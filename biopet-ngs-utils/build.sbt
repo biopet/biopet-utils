@@ -8,3 +8,6 @@ scalaVersion := "2.11.11"
 resolvers += Resolver.mavenLocal
 
 libraryDependencies += "com.github.samtools" % "htsjdk" % "2.11.0"
+
+libraryDependencies += "org.scalatest" % "scalatest_2.11" % "2.2.1" % Test
+libraryDependencies += "org.testng" % "testng" % "6.8" % Test
