@@ -21,7 +21,7 @@ node('local') {
 
         stage('Test') {
             for (module in modules) {
-                sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt ${module}/coverage ${module}/test ${module}/coverageReport"
+                sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt coverage ${module}/test ${module}/coverageReport"
             }
         }
 
