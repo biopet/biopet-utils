@@ -6,7 +6,8 @@ import nl.biopet.utils
 /**
   * Abstract opt parser to add default args to each biopet tool
   */
-abstract class AbstractOptParser[T](cmdName: String) extends scopt.OptionParser[T](cmdName) {
+abstract class AbstractOptParser[T](cmdName: String)
+    extends scopt.OptionParser[T](cmdName) {
   head("General Biopet options")
   opt[String]('l', "log_level") foreach { x =>
     x.toLowerCase match {
