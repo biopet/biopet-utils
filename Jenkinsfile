@@ -1,4 +1,4 @@
-def modules = ["biopetUtils", "biopetToolUtils", "biopetNgsUtils"]
+def modules = ["biopetUtils", "biopetToolUtils", "biopetNgsUtils", "biopetConfigUtils"]
 
 node('local') {
     try {

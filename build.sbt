@@ -9,6 +9,8 @@ lazy val biopetUtils = (project in file("."))
 
 lazy val biopetToolUtils = (project in file("biopet-tool-utils"))
   .dependsOn(biopetUtils)
+lazy val biopetConfigUtils = (project in file("biopet-config-utils"))
+  .dependsOn(biopetUtils)
 lazy val biopetNgsUtils = (project in file("biopet-ngs-utils"))
   .dependsOn(biopetUtils)
 
