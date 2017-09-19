@@ -1,3 +1,5 @@
+def modules = ["biopetUtils", "biopetToolUtils", "biopetNgsUtils"]
+
 node('local') {
     try {
 
@@ -11,19 +13,35 @@ node('local') {
         stage('Checkout') {
             checkout scm
         }
-
         stage('Build') {
-            sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt clean compile"
+            for (module in modules) {
+                sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt ${module}/clean ${module}/compile"
+            }
         }
 
         stage('Test') {
-            sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt coverage test coverageReport"
+            for (module in modules) {
+                sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt ${module}/coverage ${module}/test ${module}/coverageReport"
+            }
         }
 
         stage('Results') {
             junit '**/test-output/junitreports/*.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'target/scala-2.11/scoverage-report/', reportFiles: 'index.html', reportName: 'Scoverage Report', reportTitles: ''])
         }
+
+        if (env.BRANCH_NAME == 'develop') stage('Publish') {
+            for (module in modules) {
+                sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt ${module}/publishLocal"
+            }
+        }
+
+        if (env.BRANCH_NAME == 'master') stage('Publish') {
+            for (module in modules) {
+                sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt ${module}/publishLocal"
+            }
+        }
+
 
         if (currentBuild.result == null || "SUCCESS" == currentBuild.result) {
             currentBuild.result = "SUCCESS"
