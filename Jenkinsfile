@@ -24,7 +24,7 @@ node('local') {
             junit '**/test-output/junitreports/*.xml'
             //publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'target/scala-2.11/scoverage-report/', reportFiles: 'index.html', reportName: 'Scoverage Report', reportTitles: ''])
         }
-        ScoveragePublisher
+
         if (env.BRANCH_NAME == 'develop') stage('Publish') {
             sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt publishLocal"
         }
