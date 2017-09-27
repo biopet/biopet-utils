@@ -21,7 +21,7 @@ node('local') {
 
         stage('Results') {
             junit '**/test-output/junitreports/*.xml'
-            step([$class: 'ScoveragePublisher', reportDir: 'target/scala-2.11/scoverage-report', reportFile: 'target/scala-2.11/scoverage-report/scoverage.xml'])
+            step([$class: 'ScoveragePublisher', reportDir: 'target/scala-2.11/scoverage-report', reportFile: 'scoverage.xml'])
             //publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'target/scala-2.11/scoverage-report/', reportFiles: 'index.html', reportName: 'Scoverage Report', reportTitles: ''])
         }
         ScoveragePublisher
@@ -51,7 +51,7 @@ node('local') {
 
         stage('Results') {
             junit '**/test-output/junitreports/*.xml'
-            step([$class: 'ScoveragePublisher', reportDir: 'target/scala-2.11/scoverage-report', reportFile: 'target/scala-2.11/scoverage-report/scoverage.xml'])
+            step([$class: 'ScoveragePublisher', reportDir: 'target/scala-2.11/scoverage-report', reportFile: 'scoverage.xml'])
             //publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'target/scala-2.11/scoverage-report/', reportFiles: 'index.html', reportName: 'Scoverage Report', reportTitles: ''])
         }
 
