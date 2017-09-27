@@ -1,5 +1,3 @@
-def modules = ["biopetUtils", "biopetToolUtils", "biopetNgsUtils", "biopetConfigUtils"]
-
 node('local') {
     try {
 
@@ -14,15 +12,11 @@ node('local') {
             checkout scm
         }
         stage('Build') {
-            for (module in modules) {
-                sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt ${module}/clean ${module}/compile"
-            }
+            sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt clean compile"
         }
 
         stage('Test') {
-            for (module in modules) {
-                sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt coverage ${module}/test ${module}/coverageReport"
-            }
+            sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt coverageOn test coverageReport coverageAggregate"
         }
 
         stage('Results') {
@@ -31,15 +25,11 @@ node('local') {
         }
 
         if (env.BRANCH_NAME == 'develop') stage('Publish') {
-            for (module in modules) {
-                sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt ${module}/publishLocal"
-            }
+            sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt publishLocal"
         }
 
         if (env.BRANCH_NAME == 'master') stage('Publish') {
-            for (module in modules) {
-                sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt ${module}/publishLocal"
-            }
+            sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt publishLocal"
         }
 
 
