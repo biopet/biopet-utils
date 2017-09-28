@@ -12,4 +12,4 @@ libraryDependencies += "commons-io" % "commons-io" % "2.1"
 libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.3"
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.1" % Test
-libraryDependencies += "org.testng" %% "testng" % "6.8" % Test
+libraryDependencies += "org.testng" % "testng" % "6.8" % Test

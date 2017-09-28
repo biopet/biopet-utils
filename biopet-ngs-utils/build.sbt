@@ -9,6 +9,6 @@ resolvers += Resolver.mavenLocal
 
 libraryDependencies += "com.github.samtools" % "htsjdk" % "2.11.0"
 
-libraryDependencies += "org.scalatest" % "scalatest_2.11" % "2.2.1" % Test
+libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.1" % Test
 libraryDependencies += "org.testng" % "testng" % "6.8" % Test
 libraryDependencies += "org.mockito" % "mockito-all" % "1.9.5" % Test
