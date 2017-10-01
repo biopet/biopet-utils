@@ -1,4 +1,4 @@
-organization := "nl.biopet"
+organization := "com.github.biopet"
 name := "biopet-ngs-utils"
 
 version := "0.1.0-SNAPSHOT"

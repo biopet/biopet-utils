@@ -29,4 +29,5 @@ abstract class AbstractOptParser[T](cmdName: String)
     System.err.println("Version: " + utils.Version)
     sys.exit(1)
   } text "Print version"
+  head(s"\n\nOptions for $cmdName\n")
 }
