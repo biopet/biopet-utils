@@ -6,10 +6,10 @@ scalaVersion := "2.11.11"
 resolvers += Resolver.mavenLocal
 
 lazy val biopetUtils = (project in file("."))
-  .aggregate(biopetToolUtils, biopetConfigUtils, biopetNgsUtils, biopetCommonUtils)
+  .aggregate(biopetToolUtils, biopetConfigUtils, biopetNgsUtils, biopetCommonUtils, biopetSummaryUtils)
 
-lazy val biopetCommonUtils = (project in file("biopet-common-utils"))
+lazy val biopetCommonUtils = project in file("biopet-common-utils")
+lazy val biopetSummaryUtils = (project in file("biopet-summary-utils")).dependsOn(biopetCommonUtils)
 lazy val biopetToolUtils = (project in file("biopet-tool-utils")).dependsOn(biopetCommonUtils)
 lazy val biopetConfigUtils = (project in file("biopet-config-utils")).dependsOn(biopetCommonUtils)
 lazy val biopetNgsUtils = (project in file("biopet-ngs-utils")).dependsOn(biopetCommonUtils)
-
