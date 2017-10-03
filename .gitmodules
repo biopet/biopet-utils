@@ -13,3 +13,6 @@
 [submodule "biopet-summary-utils"]
 	path = biopet-summary-utils
 	url = https://github.com/biopet/biopet-summary-utils.git
+[submodule "biopet-test-utils"]
+	path = biopet-test-utils
+	url = https://github.com/biopet/biopet-test-utils.git
