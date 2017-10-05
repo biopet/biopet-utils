@@ -16,3 +16,6 @@
 [submodule "biopet-test-utils"]
 	path = biopet-test-utils
 	url = https://github.com/biopet/biopet-test-utils.git
+[submodule "biopet-spark-utils"]
+	path = biopet-spark-utils
+	url = https://github.com/biopet/biopet-spark-utils.git
