@@ -1,21 +1,28 @@
 [submodule "biopet-common-utils"]
+    branch = develop
 	path = biopet-common-utils
 	url = https://github.com/biopet/biopet-common-utils.git
 [submodule "biopet-tool-utils"]
+    branch = develop
 	path = biopet-tool-utils
 	url = https://github.com/biopet/biopet-tool-utils.git
 [submodule "biopet-ngs-utils"]
+    branch = develop
 	path = biopet-ngs-utils
 	url = https://github.com/biopet/biopet-ngs-utils.git
 [submodule "biopet-config-utils"]
+    branch = develop
 	path = biopet-config-utils
 	url = https://github.com/biopet/biopet-config-utils.git
 [submodule "biopet-summary-utils"]
+    branch = develop
 	path = biopet-summary-utils
 	url = https://github.com/biopet/biopet-summary-utils.git
 [submodule "biopet-test-utils"]
+    branch = develop
 	path = biopet-test-utils
 	url = https://github.com/biopet/biopet-test-utils.git
 [submodule "biopet-spark-utils"]
+    branch = develop
 	path = biopet-spark-utils
 	url = https://github.com/biopet/biopet-spark-utils.git
