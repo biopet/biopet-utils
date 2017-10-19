@@ -14,10 +14,6 @@
     branch = develop
 	path = biopet-config-utils
 	url = https://github.com/biopet/biopet-config-utils.git
-[submodule "biopet-summary-utils"]
-    branch = develop
-	path = biopet-summary-utils
-	url = https://github.com/biopet/biopet-summary-utils.git
 [submodule "biopet-test-utils"]
     branch = develop
 	path = biopet-test-utils
