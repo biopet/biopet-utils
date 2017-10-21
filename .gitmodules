@@ -10,10 +10,6 @@
     branch = develop
 	path = biopet-ngs-utils
 	url = https://github.com/biopet/biopet-ngs-utils.git
-[submodule "biopet-config-utils"]
-    branch = develop
-	path = biopet-config-utils
-	url = https://github.com/biopet/biopet-config-utils.git
 [submodule "biopet-test-utils"]
     branch = develop
 	path = biopet-test-utils
