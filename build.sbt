@@ -3,10 +3,10 @@ name := "utils"
 
 scalaVersion := "2.11.11"
 
-resolvers += Resolver.mavenLocal
+resolvers += Resolver.sonatypeRepo("snapshots")
 
 lazy val utils = (project in file("."))
-  .aggregate(toolUtils, ngsUtils, commonUtils)
+  .aggregate(toolUtils, ngsUtils, commonUtils, testUtils)
 
 lazy val testUtils = project in file("test-utils")
 
