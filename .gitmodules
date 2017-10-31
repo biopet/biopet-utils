@@ -18,3 +18,6 @@
     branch = develop
 	path = spark-utils
 	url = https://github.com/biopet/spark-utils.git
+[submodule "tool-test-utils"]
+	path = tool-test-utils
+	url = https://github.com/biopet/tool-test-utils.git
