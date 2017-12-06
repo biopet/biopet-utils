@@ -6,7 +6,7 @@ scalaVersion := "2.11.11"
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 lazy val utils = (project in file("."))
-  .aggregate(toolUtils, ngsUtils, commonUtils, testUtils, toolTestUtils)
+  .aggregate(toolUtils, ngsUtils, commonUtils, testUtils, toolTestUtils, sparkUtils)
 
 lazy val testUtils = project in file("test-utils")
 
