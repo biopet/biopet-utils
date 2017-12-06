@@ -10,12 +10,8 @@ node('local') {
             sh 'git submodule update --init --recursive'
         }
 
-        stage('Build') {
-            sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt -no-colors clean compile"
-        }
-
-        stage('Test') {
-            sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt -no-colors coverageOn test coverageReport coverageAggregate"
+        stage('Build & Test') {
+            sh "${tool name: 'sbt 0.13.15', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/bin/sbt -no-colors clean compile coverageOn test coverageReport coverageAggregate"
         }
 
         stage('Results') {
