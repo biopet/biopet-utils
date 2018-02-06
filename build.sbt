@@ -1,9 +1,13 @@
 organization := "com.github.biopet"
-name := "utils"
+name := "Utils"
 
 scalaVersion := "2.11.11"
 
-resolvers += Resolver.sonatypeRepo("snapshots")
+biopetUrlName := "utils"
+
+biopetIsTool := false
+
+developers += Developer(id="ffinfo", name="Peter van 't Hof", email="pjrvanthof@gmail.com", url=url("https://github.com/ffinfo"))
 
 lazy val utils = (project in file("."))
   .aggregate(toolUtils, ngsUtils, commonUtils, testUtils, toolTestUtils, sparkUtils)
