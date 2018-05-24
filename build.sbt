@@ -20,11 +20,14 @@ lazy val utils = (project in file("."))
              commonUtils,
              testUtils,
              toolTestUtils,
-             sparkUtils)
+             sparkUtils,
+             biowdlTestUtils)
 
 lazy val testUtils = project in file("test-utils")
 
 lazy val commonUtils = (project in file("common-utils")).dependsOn(testUtils)
+lazy val biowdlTestUtils =
+  (project in file("biowdl-test-utils")).dependsOn(commonUtils)
 lazy val toolUtils = (project in file("tool-utils")).dependsOn(commonUtils)
 lazy val toolTestUtils =
   (project in file("tool-test-utils")).dependsOn(toolUtils, testUtils)
