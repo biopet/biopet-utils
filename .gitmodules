@@ -21,3 +21,6 @@
 [submodule "tool-test-utils"]
 	path = tool-test-utils
 	url = https://github.com/biopet/tool-test-utils.git
+[submodule "biowdl-test-utils"]
+	path = biowdl-test-utils
+	url = https://github.com/biopet/biowdl-test-utils.git
